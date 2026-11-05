@@ -1,0 +1,50 @@
+/* 1. Imports SIEMPRE primero, sin nada antes */
+@import '@fontsource/kanit';
+
+/* 2. Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 3. timer para el toast*/
+[x-cloak] { display: none !important; }
+
+/* 4. Variables de tema */
+:root {
+  --color-background: oklch(99.1% 0 0);
+  --color-text: oklch(16.5% 0.014 14.68);
+  --color-text-muted: oklch(55.1% 0.023 264.36);
+  --color-border: oklch(92.8% 0.006 264.53);
+  --color-surface-hover: oklch(92.8% 0.006 264.53);
+  --color-accent: oklch(70.5% 0.213 47.604);
+}
+
+.dark {
+  --color-background: oklch(26.5% 0.014 245.6);
+  --color-text: oklch(99.1% 0 0);
+  --color-text-muted: oklch(69.8% 0.018 264.36);
+  --color-border: oklch(21.5% 0.003 264.53);
+  --color-surface-hover: oklch(21.9% 0.001 286.07);
+}
+
+[data-accent="orange"]  { --color-accent: oklch(70.5% 0.213 47.604); }
+[data-accent="blue"]    { --color-accent: oklch(62.3% 0.214 259.815); }
+[data-accent="emerald"] { --color-accent: oklch(71.5% 0.143 201.3);};
+[data-accent="purple"]  { --color-accent: oklch(62.7% 0.265 303.900); }
+[data-accent="rose"]    { --color-accent: oklch(64.5% 0.246 16.439); }
+
+/* 5. Fix de autofill (va al final, sin problema) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--color-text,oklch(16.5% 0.014 14.68));
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--color-text, oklch(99.1% 0 0));
+}
